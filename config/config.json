@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "root",
+    "passwrod": "",
+    "database": "shop",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+
+  "test": {
+    "username": "root",
+    "passwrod": "",
+    "database": "database_test",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+
+  "production": {
+    "username": "root",
+    "passwrod": "",
+    "database": "database_production",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}

@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+.auth {
+  position: relative;
+  min-height: 100vh;
+  background-color: #fee648;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.auth__wrap {
+  position: relative;
+  width: 800px;
+  height: 500px;
+  background-color: #fff;
+  box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.auth__expression {
+  background-color: #333333;
+}
+
+.auth__expression {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.auth__expression--orange {
+  background-color: #ff0;
+}
+
+.auth__expression--red {
+  background-color: rgb(255, 0, 76);
+}
+
+.signin__bg img {
+  position: absolute;
+  height: 100%;
+  width: 200%;
+  left: 0%;
+  object-fit: cover;
+}
+
+.signup__bg img {
+  position: absolute;
+  height: 100%;
+  width: 201%;
+  right: 0%;
+  object-fit: cover;
+}
+
+/* start form component */
+.form {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  flex-direction: column;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  transition: 0.5s;
+}
+
+.form h2 {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.form input {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #f5f5f5;
+  color: #333333;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  margin: 8px 0;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 300;
+  box-shadow: 1px 1px 3px #e2dfdf;
+}
+
+.form label {
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.form span {
+  font-size: 12px;
+  color: #dc1c3b;
+}
+/* end form component */
+
+/* button component */
+.btn {
+  width: 100%;
+  color: #fff;
+  font-weight: 14px;
+  letter-spacing: 1px;
+  border: none;
+  height: 32px;
+  margin: 10px 0;
+}
+
+.btn__login {
+  background-color: #677eff;
+}
+
+.btn__login-facebook {
+  background-color: #325c96;
+}
+
+.btn__login-google {
+  background-color: #dc1c3b;
+}
+
+.btn__registion {
+  background-color: #677eff;
+}
+
+/* end button component */
+
+.login__sigup {
+  font-weight: 600;
+  margin-top: 10px;
+  font-size: 15px;
+  text-decoration: none;
+  color: #677eff;
+}
+
+.login__sigup a {
+  margin-left: 5px;
+}
+
+.auth__wrap.active .signin__form {
+  left: 100%;
+}
+
+.auth__wrap .signin__form {
+  left: 0%;
+}
+
+.auth__wrap.active .signin__bg {
+  left: -50%;
+}
+
+.auth__wrap .signin__bg {
+  left: 50%;
+}
+
+.auth__wrap.active .signup__form {
+  left: 50%;
+}
+
+.auth__wrap .signup__form {
+  left: -50%;
+}
+
+.auth__wrap.active .signup__bg {
+  left: 0%;
+}
+
+.auth__wrap .signup__bg {
+  left: 100%;
+}
