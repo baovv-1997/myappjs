@@ -130,6 +130,7 @@
   border: none;
   height: 32px;
   margin: 10px 0;
+  cursor: pointer;
 }
 
 .btn__login {

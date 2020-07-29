@@ -5,6 +5,7 @@ import authRouter from "./src/routes/auth";
 import indexRouter from "./src/routes/index";
 import userRouter from "./src/routes/user";
 import path from 'path';
+import auth from "./src/controllers/auth";
 
 export class App {
   constructor(port) {
@@ -18,6 +19,10 @@ export class App {
     this.setCors();
     this.setRoutes();
     this.setViews();
+  }
+
+  setAuth() {
+    this.app.use(auth().initialize());
   }
 
   settingPort() {

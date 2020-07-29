@@ -3,6 +3,7 @@ head
   meta(charset='UTF-8')
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
   title Document
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
   style
     include ../styles/auth.css
 section.auth
@@ -10,21 +11,21 @@ section.auth
     form.form.signup__form
       h2 sign up
       label(for='signup__name') User Name
-      span.signup-err-name Please enter your name
+      span.signup-err-name 
       input#signup__name.signup__name(type='text')
       label(for='signup__email') Email
-      span.signup-err-email Please enter your name
-      input#signup__email.signup__email(type='text')
+      span.signup-err-email 
+      input#signup__email.signup__email(type='email')
       label(for='signup__pass') Password
-      span.signup-err-pass Please enter your name
-      input#signup__pass.signup__password(type='text')
-      label#signup__confirm(for='signup__confirm') Confirm Password
-      span.signup-err-confirm Please enter your name
-      input.signup__confirm(type='text')
+      span.signup-err-pass 
+      input#signup__pass.signup__password(type='password')
+      label(for='signup__confirm') Confirm Password
+      span.signup-err-confirm 
+      input#signup__confirm.signup__confirm(type='password')
       button.btn.btn__registion(type='button', name='') Sign up
       p.login__sigup
         | Account access
-        a(href='#', onclick='toggleForm()') Sign in.
+        a(href='#' class="from__toggle") Sign in.
     .auth__expression.auth__expression--red.signup__bg
       img(src='../images/cassettes.jpg', alt='')
     .auth__expression.auth__expression--orange.signin__bg
@@ -32,19 +33,16 @@ section.auth
     form.form.signin__form
       h2 Sign in
       label(for='login__email') Email
-      span.login-err-email Please enter your name
-      input#login__email.login__email(type='text')
+      span.login-err-email 
+      input#login__email.login__email(type='email')
       label(for='login__pass') Password
-      span.login-err-pass Please enter your name
-      input#login__pass.login__password(type='text')
+      span.login-err-pass 
+      input#login__pass.login__password(type='password')
       button.btn.btn__login(type='button', name='') Sign in
       button.btn.btn__login-facebook(type='button', name='') Sign in with Facebook
       button.btn.btn__login-google(type='button', name='') Sign in with Google
       p.login__sigup
         | Create a account
-        a(href='#', onclick='toggleForm()') Sign up.
-script.
-  function toggleForm(){
-  var container = document.querySelector('.auth__wrap')
-  container.classList.toggle('active');
-  }
+        a(href='#' class="from__toggle") Sign up.
+script
+  include ../scripts/auth.js

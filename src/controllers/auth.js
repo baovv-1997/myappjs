@@ -1,7 +1,38 @@
-export const getNewUserForm = (req, res) => {
-  res.render("auth");
-}
+const passport = require("passport");
+const JwtStrategy = require("passport-jwt").Strategy;
+const ExtractJwt = require("passport-jwt").ExtractJwt;
 
-export const createUser = (req, res) => {
+import db from "../database/connection";
 
-}
+export default () => {
+  const params = {
+    secretOrKey: "NTASK_TEST",
+    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  };
+
+  // callback when find a token in header
+  const jwtStrategy = new JwtStrategy(params, async (jwt_payload, done) => {
+    // decoded token and return jwt_payload
+    try {
+      const user = await db.users.findByPk(jwt_payload.id)
+      if (user) {
+        return done(null, { id: user.id, email: user.email });
+      }
+      return done(null, false);
+    } catch (err) {
+      return done(err, false);
+    }
+  });
+
+  passport.use(jwtStrategy);
+
+  return {
+    initialize: () => {
+      return passport.initialize();
+    },
+    authenticate: () => {
+      const response = passport.authenticate("jwt", { session: false });
+      return response;
+    },
+  };
+};

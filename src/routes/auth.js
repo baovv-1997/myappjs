@@ -1,11 +1,11 @@
 import express from "express";
-import { getNewUserForm, createUser } from "../controllers/auth";
+import { getNewUserForm, loginUser } from "../controllers/token";
 
 
 const router = express.Router();
 
-router.route('/auth')
+router.route('/token')
   .get(getNewUserForm)
-  .post(createUser)
+  .post(loginUser)
 
 export default router;
