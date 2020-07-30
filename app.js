@@ -6,6 +6,7 @@ import indexRouter from "./src/routes/index";
 import userRouter from "./src/routes/user";
 import path from 'path';
 import auth from "./src/controllers/auth";
+var cookieParser = require('cookie-parser')
 
 export class App {
   constructor(port) {
@@ -36,6 +37,7 @@ export class App {
   }
 
   setBodyParser() {
+    this.app.use(cookieParser());
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: false }));
   }

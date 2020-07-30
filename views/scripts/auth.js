@@ -43,7 +43,6 @@ $(document).ready(function () {
       success: function (result) {
         if (result.errors) {
           for (err of result.errors) {
-            console.log(err);
             if (err.param === 'name') {
               signupNameErr.textContent = err.msg;
             }
@@ -82,7 +81,6 @@ $(document).ready(function () {
       data: data,
       dataType: 'json',
       success: function (result) {
-        console.log(result);
         if (result.errors) {
           for (err of result.errors) {
             if (err.param === 'email') {

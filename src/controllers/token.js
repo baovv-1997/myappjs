@@ -1,6 +1,8 @@
 import db from "../database/connection";
 import bcrypt from "bcrypt";
 import jwt from "jwt-simple";
+import config from "../../config/config.json"
+
 
 export const getNewUserForm = (req, res) => {
   res.render("auth");
@@ -9,7 +11,6 @@ export const getNewUserForm = (req, res) => {
 export const loginUser = async (req, res) => {
   // return res.send(req.body);
   const { email, pass } = req.body;
-  console.log("@email", email);
   const errors = [];
   if (!email) {
     errors.push({ param: "email", msg: "Email is not empty" })
@@ -19,8 +20,7 @@ export const loginUser = async (req, res) => {
   }
 
   if (email && pass) {
-    const user = await db.users.findOne({where: { "email": email }});
-    console.log(user);
+    const user = await db.users.findOne({ where: { "email": email } });
     if (!user) {
       errors.push({ param: "email", msg: "Email does not exist" })
       return res.send({ errors: errors });
@@ -28,7 +28,8 @@ export const loginUser = async (req, res) => {
     if (bcrypt.compareSync(pass, user.password)) {
       const payload = { id: user.id };
       // create a encoded token - default HS256
-      const token = jwt.encode(payload, "NTASK_TEST");
+      const token = jwt.encode(payload, config.jwtSecret);
+      res.cookie('jwt', token);
       return res.send({
         token: token,
       });
@@ -38,4 +39,10 @@ export const loginUser = async (req, res) => {
     }
   }
   return res.send({ "errors": errors });
+}
+
+
+export const logOut = (req, res) => {
+  res.clearCookie('jwt');
+  return res.redirect("/token");
 }

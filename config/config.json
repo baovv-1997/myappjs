@@ -21,5 +21,7 @@
     "database": "database_production",
     "host": "localhost",
     "dialect": "mysql"
-  }
+  },
+
+  "jwtSecret": "NTASK_TEST"
 }

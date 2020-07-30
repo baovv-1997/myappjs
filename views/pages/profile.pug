@@ -1,0 +1,80 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title Document
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+  link(href='https://fonts.googleapis.com/css?family=Roboto', rel='stylesheet')
+  style
+    include ../styles/profile.css
+header.header
+  nav.nav
+    div
+      p.nav__slogan My finace dashboad
+      p.nav__title Welcome to xPay payment portal
+    ul.nav__list
+      li.nav__item
+        img.nav__notification(src='../images/noti.png', alt='')
+      li.nav__item
+        img.nav__logo(src='../images/images.jpeg', alt='')
+        span.nav__account-name Hello Sami
+      li.nav__item
+        a(href="/token/logout") Logout
+section.user
+  .user__wrap
+    .profile
+      img.profile__img(src='../images/images.jpeg', alt='')
+      h4.profile__title My profile
+      span.label.profile__label Name
+      span.profile__name= user.name
+      span.label.profile__label Email
+      span.profile__email= user.email
+      span.label.profile__label Gender
+      span.profile__gender= user.gender
+      button#change-pass.btn Change Password
+    .account.profile
+      span.label.profile__label Phone
+      span.profile__phonel= user.phone
+      span.label.profile__label Address
+      span.profile__addressl= user.address
+      span.label.profile__label Nationality
+      span.profile__nationlityl= user.nationality
+    .bills.profile
+      span.label.profile__label Skill
+      span.profile__skill= user.skill
+      span.label.profile__label Interests
+      span.profile__interests= user.interests
+      button#update-profile.btn Update Profile
+// The Modal
+#myModal.modal
+  // Modal content
+  .modal-content
+    span.close &times;
+    form.form.profile__form
+      h2 Update Profile
+      label(for='profile__name') User Name
+      span.profile-err-name Please enter your name
+      input#profile__name.profile__name(type='text', value= user.name)
+      label(for='profile__gender') Gender
+      span.profile-err-gender Please enter your name
+      input#profile__gender.profile__name(type='text', value= user.gender)
+      label(for='profile__phone') Phone
+      span.profile-err-phone Please enter your name
+      input#profile__phone.profile__name(type='text', value= user.phone)
+      label(for='profile__address') Address
+      span.profile-err-address Please enter your name
+      input#profile__address.profile__name(type='text', value= user.address)
+      label(for='profile__nationality') Nationality
+      span.profile-err-nationality Please enter your name
+      input#profile__nationality.profile__name(type='text', value= user.nationality)
+      label(for='profile__skill') Skill
+      span.profile-err-skill Please enter your name
+      input#profile__skill.profile__name(type='text', value= user.skill)
+      label(for='profile__interests') Interests
+      span.profile-err-interests Please enter your name
+      input#profile__interests.signup__name(type='text', value= user.interests)
+      button.btn.btn__profile(type='button', name='') Update Profile  
+
+script
+  include ../scripts/profile.js
+

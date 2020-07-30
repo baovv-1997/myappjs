@@ -29,6 +29,30 @@ module.exports = (sequelize, DataType) => {
         validate: {
           notEmpty: true,
         },
+      },
+      gender: {
+        type: DataType.STRING,
+        allowNull: true,
+      }, 
+      phone: {
+        type: DataType.STRING,
+        allowNull: true,
+      }, 
+      address: {
+        type: DataType.STRING,
+        allowNull: true,
+      }, 
+      nationality: {
+        type: DataType.STRING,
+        allowNull: true,
+      },
+      skill: {
+        type: DataType.STRING,
+        allowNull: true,
+      },
+      interests: {
+        type: DataType.STRING,
+        allowNull: true,
       }
     },
     {
@@ -40,8 +64,8 @@ module.exports = (sequelize, DataType) => {
       },
     }
   );
-  
-  Users.associate = function(models) {
+
+  Users.associate = function (models) {
     Users.hasMany(models);
   }
 
